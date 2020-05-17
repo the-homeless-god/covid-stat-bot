@@ -1,0 +1,36 @@
+{
+  "name": "covid-stat-bot",
+  "version": "1.0.0",
+  "description": "bot with statistic for covid-19",
+  "main": "sources/index.js",
+  "scripts": {
+    "pm": "pm2 start sources/index.js",
+    "recycle": "pm2 delete all & npm run tsc && npm run pm && pm2 logs",
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zimtir/covid-stat-bot.git"
+  },
+  "keywords": [
+    "covid",
+    "icq-bot",
+    "telegram-bot",
+    "vk-bot",
+    "statistic",
+    "coronavirus",
+    "covid-19"
+  ],
+  "author": "Marat Zimnurov <zimtir@mail.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zimtir/covid-stat-bot/issues"
+  },
+  "homepage": "https://github.com/Zimtir/covid-stat-bot#readme",
+  "dependencies": {
+    "typescript": "^3.9.2"
+  },
+  "devDependencies": {
+    "pm2": "^4.4.0"
+  }
+}
