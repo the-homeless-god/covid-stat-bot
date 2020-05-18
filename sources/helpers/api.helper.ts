@@ -1,13 +1,6 @@
 import ICountry from '../interfaces/country.interface'
 import CountryPropertyEnum from '../enums/country.property.enum'
-
-export const getTopTenCountriesByDeath = (countries: ICountry[]) => {
-  return countries
-    .sort((a, b) => {
-      return b.death - a.death
-    })
-    .splice(0, 10)
-}
+import fetch from 'node-fetch'
 
 export const calcByProp = (
   countries: ICountry[],
@@ -24,6 +17,12 @@ export const getTopTenByProp = (
     .sort((a: ICountry, b: ICountry) => {
       return b[property] - a[property]
     })
-    .splice(0, 10)
-    .map((country) => country.name)
+    .slice(0, 10)
+    .map((country: ICountry) => country.country)
+}
+
+export const getCountries = async (): Promise<ICountry[]> => {
+  const fetchResponse = await fetch(process.env.API_GET_STATISTIC!)
+  const fetchData = await fetchResponse.json()
+  return fetchData
 }

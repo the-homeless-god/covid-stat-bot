@@ -1,5 +1,5 @@
 export default interface ICountry {
-  name: string
+  country: string
   case: number
   death: number
   recov: number
